@@ -1,101 +1,158 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="flex min-h-screen flex-col">
+      {/* Hero Section */}
+      <section className="bg-black text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl font-bold mb-6">Developer Portfolio <span className="text-yellow-400">&</span> Interactive Playgrounds</h1>
+            <p className="text-xl mb-8">
+              Explore my projects across Java, Python, and modern web technologies. 
+              Try them out in interactive environments directly in your browser.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-black">
+                <Link href="/projects">
+                  Browse Projects
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black">
+                <Link href="/playground">
+                  Open Playgrounds
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Project Categories */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Project <span className="text-yellow-400">Categories</span></h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border border-gray-200 hover:border-yellow-400 transition-colors duration-300">
+              <CardHeader className="border-b border-gray-100">
+                <CardTitle className="text-black">Java Applications</CardTitle>
+                <CardDescription>
+                  Command-line tools and GUI applications built with Java
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Explore Java applications with both command-line interfaces and graphical user interfaces.
+                  Run them directly from your browser.
+                </p>
+                <Button asChild className="bg-black hover:bg-yellow-400 hover:text-black transition-colors">
+                  <Link href="/playground/java">
+                    View Java Projects
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-gray-200 hover:border-yellow-400 transition-colors duration-300">
+              <CardHeader className="border-b border-gray-100">
+                <CardTitle className="text-black">Python Projects</CardTitle>
+                <CardDescription>
+                  Scripts, tools, and applications written in Python
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Dive into Python applications ranging from data analysis to automation tools.
+                  Execute Python code with a web-based terminal.
+                </p>
+                <Button asChild className="bg-black hover:bg-yellow-400 hover:text-black transition-colors">
+                  <Link href="/playground/python">
+                    View Python Projects
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card className="border border-gray-200 hover:border-yellow-400 transition-colors duration-300">
+              <CardHeader className="border-b border-gray-100">
+                <CardTitle className="text-black">Web Applications</CardTitle>
+                <CardDescription>
+                  Modern web applications built with JavaScript frameworks
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Experience web applications built with modern JavaScript frameworks.
+                  Interact with them directly within the portfolio.
+                </p>
+                <Button asChild className="bg-black hover:bg-yellow-400 hover:text-black transition-colors">
+                  <Link href="/playground/web">
+                    View Web Projects
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-black text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">About <span className="text-yellow-400">Me</span></h2>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg mb-6">
+              I'm Syed Zubin Hafiz, a passionate developer with expertise in multiple programming languages and frameworks.
+              My portfolio showcases various projects I've built using Java, Python, and modern web technologies.
+            </p>
+            <p className="text-lg mb-6">
+              What makes this portfolio unique is the ability to interact with my projects directly in your browser.
+              You can run Java applications, execute Python scripts, and use web applications without having to download or set up anything.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Get In <span className="text-yellow-400">Touch</span></h2>
+          <div className="max-w-md mx-auto">
+            <p className="text-center mb-8">
+              Interested in collaboration or have questions about my projects? Feel free to reach out!
+            </p>
+            <div className="flex flex-col space-y-4 items-center">
+              <div className="flex space-x-4">
+                <Button asChild size="lg" className="bg-black hover:bg-yellow-400 hover:text-black transition-colors">
+                  <a href="mailto:zubinhafiz99@gmail.com">
+                    Email Me
+                  </a>
+                </Button>
+                <Button asChild size="lg" className="bg-black hover:bg-yellow-400 hover:text-black transition-colors">
+                  <a href="tel:+8801734316537">
+                    Call Me
+                  </a>
+                </Button>
+              </div>
+              <div className="flex space-x-4">
+                <Button asChild size="lg" variant="outline" className="border-black hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-colors">
+                  <a href="https://linkedin.com/in/syedzubinhafiz" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-black hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-colors">
+                  <a href="https://github.com/syedzubinhafiz" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
